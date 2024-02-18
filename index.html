@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 6 Assignment</title>
+</head>
+<body>
+<script>
+
+//*********************************************************
+//****Assignment 6 Section 1
+//*********************************************************
+
+console.log ("Assignment 6 – Asserts and Try/Catch.");
+
+let emptyString = null; 
+let positiveInteger = 0; 
+
+console.assert(emptyString !== null && emptyString !== "", "Parameter must not be empty or null");
+console.assert(positiveInteger > 0, "Parameter must be greater than zero");
+
+//*********************************************************
+//****Assignment 6 Section 2
+//*********************************************************
+
+alert("ArrayOutOfBounds error occurred");
+let stringArray = ["Item 1", "Item 2", "Item 3"];
+
+try {
+  for (let i = 0; i <= stringArray.length; i++) {
+    console.log(stringArray[i]);
+  }
+} catch (error) {
+  alert("Array out of bounds error occurred Index was outside the bounds of the array.");
+  alert(error.message);
+}
+
+//*********************************************************
+//****Assignment 6 Section 3
+//*********************************************************
+
+alert("FileDoesNotExist error occurred");
+
+try {
+  fetch('NoFileNamedThis.txt')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("File not found error");
+      }
+    })
+    .catch(error => {
+      alert("Could not find file\n‘C:\\ NoFileNamedThis.txt’");
+      alert(error.message);
+    });
+} catch (error) {
+  alert("Unexpected error occurred");
+  alert(error.message);
+}
+
+
+//*********************************************************
+//****Assignment 6 Section 4
+//*********************************************************
+
+alert("DivideByZero error occurred");
+
+function DivideByZero(dividend, divisor) {
+  if (divisor === 0) {
+    throw new Error("Divide by Zero");
+  }
+  return dividend / divisor;
+}
+
+try {
+  DivideByZero(10, 0);
+} catch (error) {
+  alert("DivideByZero error occurred");
+  alert(error.message);
+}
+      
+</script>
+</body>
+</html>
